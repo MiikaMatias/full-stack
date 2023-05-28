@@ -1,24 +1,15 @@
-const Hello = (props) => {
-  return (
-    <div>
-      <p>Hello {props.name}</p>
-    </div>
-  )
-}
+import { useState } from 'react'
 
-function namegen() {
-  const alphabet = "abcdefghijklmnopqrstuvwxyz"
-  return alphabet[Math.floor(Math.random() * alphabet.length)]
-}
-
-// Root component
 const App = () => {
-  console.log(namegen())
+  const [ counter, setCounter ] = useState(0)
+
+  setTimeout(
+    () => setCounter(counter + 1),
+    1000
+  )
+
   return (
-    <div>
-      <h1>Greetings</h1>
-      <Hello name = {namegen()+namegen()+namegen()+namegen()}/>
-    </div>
+    <div>{counter}</div>
   )
 }
 
